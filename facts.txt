@@ -1,0 +1,13 @@
+[
+    "Commercial airplanes typically fly at altitudes between 30,000 to 40,000 feet (9,144 to 12,192 meters), which is well above the weather, making it a smooth and efficient flight.",
+    "The Concorde could fly at twice the speed of sound (Mach 2.04), reducing the flight time between New York and London to just 3.5 hours.",
+    "Aircraft wings are incredibly flexible and can bend up to 90 degrees during extreme conditions without breaking.",
+    "The longest non-stop commercial flight is operated by Singapore Airlines between Singapore (SIN) and New York (JFK), covering approximately 9,537 miles and lasting up to 19 hours.",
+    "In case of a cabin depressurization, the oxygen masks provide breathable oxygen for about 12-15 minutes, which is enough for the pilot to descend to a safer altitude.",
+    "To avoid food poisoning, pilots and co-pilots are required to eat different meals during flights.",
+    "Planes are struck by lightning about once a year, but they are built to withstand it without affecting safety.",
+    "The Airbus A380 is known as one of the quietest planes, despite being the largest passenger aircraft.",
+    "At high altitudes, the low cabin pressure and dry air reduce your sense of taste and smell by about 30%, which is why airplane food often tastes bland.",
+    "Hartsfield-Jackson Atlanta International Airport (ATL) in Georgia, USA, is the world's busiest airport by passenger traffic."
+]
+

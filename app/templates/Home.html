@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="​Who We Are">
+    <meta name="description" content="">
+    <title>Home</title>
+    <link rel="stylesheet" href="static/css/nicepage.css" media="screen">
+<link rel="stylesheet" href="static/css/Home.css" media="screen">
+    <script class="u-script" type="text/javascript" src="static/js/jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="static/js/nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 7.2.3, nicepage.com">
+    <meta name="referrer" content="origin">
+    
+    
+    
+    
+    
+    
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster:400|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "Site1",
+		"sameAs": []
+}</script>
+    <meta name="theme-color" content="#1e75c7">
+    <meta property="og:title" content="Home">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-custom-color-2 u-header u-header" id="sec-4c7f"><div class="u-clearfix u-sheet u-sheet-1">
+        <img class="u-image u-image-circle u-preserve-proportions u-image-1" src="static/images/Photoroom-20241228_132140.png" alt="" data-image-width="896" data-image-height="896">
+        <h4 class="u-custom-font u-font-playfair-display u-text u-text-default u-text-1">WirFlig​hts </h4>
+      </div></header>
+    <section class="u-clearfix u-custom-color-1 u-valign-bottom-sm u-valign-bottom-xs u-valign-middle-xl u-section-1" id="carousel_7b4e">
+      <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-image u-shading u-image-1" data-image-width="701" data-image-height="438">
+        <div class="u-container-layout u-valign-top u-container-layout-1">
+          <form method="POST" action="/home" class="u-border-1 u-border-grey-30 u-grey-15 u-radius u-search u-search-layout-icon-input u-search-left u-search-1" data-search-token="no-license" data-href="search/search.html" data-page-id="104834451">
+            <div class="u-search-overlay"></div>
+            <button class="u-search-button" type="submit">
+              <span class="u-border-2 u-border-grey-75 u-file-icon u-icon-rounded u-palette-1-base u-radius u-search-icon u-spacing-10 u-search-icon-1">
+                <img src="static/images/49116.png" alt="">
+              </span>
+            </button>
+            <input class="u-custom-font u-font-lobster u-search-input u-search-input-1" type="number" name="flight_number" value="" placeholder="Search">
+          </form>
+          <h2 class="u-align-left u-custom-font u-font-playfair-display u-text u-text-default u-text-1">FLight details </h2>
+          <p class="u-align-center u-text u-text-2">
+		    {% if flight %}
+		      Flight Status: {{ flight['flight_status'] }}<br>
+		      Flight Number: {{ flight['aircraft_no'] }}<br>
+		      Airline: {{ flight['airline'] }}<br>
+		      Departure Time: {{ flight['take_off']['time'] }} <br>
+		      Departure Airport: {{ flight['take_off']['from'] }}<br>
+		      {% if flight['live'] %}
+		        Location: {{ flight['live']['location'] }}<br>
+		        Direction: {{ flight['live']['direction'] }}°<br>
+		        Speed: {{ flight['live']['speed'] }} Knots<br>
+		      {% endif %}
+		      Arrival Time: {{ flight['landing']['time'] }}<br>
+		      Arrival Airport: {{ flight['landing']['to'] }}<br>
+			{% else %}
+			  Enter Your Flight Number
+			{% endif %}
+          </p>
+        </div>
+      </div>
+      <div class="u-container-style u-expanded-width-sm u-expanded-width-xs u-group u-image u-parallax u-shading u-shape-rectangle u-image-2" data-image-width="612" data-image-height="408">
+        <div class="u-container-layout u-container-layout-2">
+          <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default-lg u-text-default-md u-text-default-xl u-text-3">Weather </h1>
+		  {% if weather %}
+          <span class="u-icon u-text-palette-1-base u-icon-1">
+            <img 
+                src="https://openweathermap.org/img/wn/{{ weather['icon'] }}@2x.png" 
+                alt="{{ weather['weather'] }}"
+                title="{{ weather['weather'] }}" 
+                class="weather-icon"
+                style="width: 100px; height: 100px;"
+            >
+            <svg class="u-svg-content" viewBox="0 0 56 56" x="0px" y="0px" id="svg-c5c4" style="enable-background:new 0 0 56 56;"><path d="M25,46H10.845C4.865,46,0,41.135,0,35.154C0,31,2.705,26.688,6.433,24.901L7,24.63V24c0-0.127,0.008-0.256,0.015-0.386
+	l0.009-0.16l-0.012-0.21C7.006,23.163,7,23.082,7,23c0-3.859,3.141-7,7-7c0.309,0,0.614,0.027,0.917,0.067
+	c0.078,0.01,0.156,0.023,0.233,0.036c0.267,0.044,0.53,0.102,0.789,0.177c0.035,0.01,0.071,0.017,0.106,0.027
+	c0.285,0.087,0.563,0.197,0.835,0.321c0.071,0.032,0.14,0.067,0.21,0.101c0.24,0.119,0.475,0.249,0.702,0.396
+	C19.719,18.373,21,20.538,21,23c0,0.553,0.447,1,1,1s1-0.447,1-1c0-2.754-1.246-5.219-3.2-6.871C22.667,12.379,27.388,10,32.085,10
+	c7.745,0,14.177,6.135,14.848,13.888c-1.022-0.072-2.552-0.109-4.083,0.124c-0.546,0.083-0.921,0.593-0.838,1.139
+	c0.075,0.495,0.501,0.85,0.987,0.85c0.05,0,0.101-0.004,0.151-0.012c2.227-0.337,4.548-0.021,4.684-0.002
+	C52.49,26.872,56,31.161,56,35.972C56,41.501,51.501,46,45.972,46H33H25z"></path></svg>
+          </span>
+          <h1 class="u-align-left u-custom-font u-font-lobster u-text u-text-palette-1-base u-text-4">{{ weather['temp'] }} ℃</h1>
+          <p class="u-align-center u-text u-text-palette-4-light-1 u-text-5">
+		      City: {{ weather['location'] }}<br>
+			  Weather: {{ weather['weather'] }}<br>
+			  Humidity: {{ weather['humidity'] }}<br>
+			  Visibility: {{ weather['visibility'] }} meters<br>
+			  Wind Speed: {{ weather['wind_speed'] }} m/s
+          </p>
+		  {% else %}
+		    Weather details Not Found
+	      {% endif %}
+        </div>
+      </div>
+      <div class="u-expanded-width-sm u-expanded-width-xs u-grey-10 u-map u-map-1">
+        <div class="embed-responsive">
+          {{ map_html|safe }}
+        </div>
+      </div>
+    </section>
+    <section class="u-clearfix u-custom-color-2 u-lightbox u-section-2" id="sec-a086">
+      <div class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-xl u-sheet-1">
+          <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
+              <h1>Flight Fact:</h1>
+              <ul>
+                  {% if facts %}
+                      <li class="fact-item">{{ facts }}</li>
+                  {% endif %}
+              </ul>
+          </div>
+      </div>
+    </section>
+    <section class="u-carousel u-carousel-duration-750 u-slide u-block-f6b2-1" id="carousel-fc81" data-interval="3500" data-u-ride="carousel" data-pause="false">
+      <ol class="u-absolute-hcenter-lg u-absolute-hcenter-md u-absolute-hcenter-sm u-absolute-hcenter-xl u-carousel-indicators u-block-f6b2-5">
+        <li data-u-target="#carousel-fc81" class="u-active u-grey-30 u-shape-circle" style="width: 10px; height: 10px;" data-u-slide-to="0"></li>
+        <li data-u-target="#carousel-fc81" class="u-grey-30 u-shape-circle" style="width: 10px; height: 10px;" data-u-slide-to="1"></li>
+        <li data-u-target="#carousel-fc81" class="u-grey-30 u-shape-circle" style="width: 10px; height: 10px;" data-u-slide-to="2"></li>
+      </ol>
+      <div class="u-carousel-inner" role="listbox">
+        <div class="u-active u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-1" data-image-width="678" data-image-height="452">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-title u-text-1">We Give Flight Location </h1>
+            <p class="u-align-center u-custom-font u-font-lobster u-large-text u-text u-text-variant u-text-2">With your Fligtht number we will give details on your flight location </p>
+          </div>
+        </div>
+        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-2" data-image-width="738" data-image-height="415">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default u-title u-text-1">We Give Estimated Arrival Time </h1>
+            <p class="u-align-center u-custom-font u-font-lobster u-large-text u-text u-text-variant u-text-2">We will tell your you the departure of your Flight time to take and the estimated tme for arrival. </p>
+          </div>
+        </div>
+        <div class="u-align-center u-carousel-item u-clearfix u-image u-shading u-section-3-3" data-image-width="598" data-image-height="513">
+          <div class="u-clearfix u-sheet u-sheet-1">
+            <h1 class="u-align-center u-custom-font u-font-playfair-display u-text u-text-default-lg u-text-default-xl u-title u-text-1">We Give weather Details </h1>
+            <p class="u-align-center u-custom-font u-font-lobster u-large-text u-text u-text-variant u-text-2">According to yur flight location we can give the weather details like visiblility etc. </p>
+          </div>
+        </div>
+      </div>
+      <a class="u-absolute-vcenter u-carousel-control u-carousel-control-prev u-text-grey-30 u-block-f6b2-3" href="#carousel-fc81" role="button" data-u-slide="prev">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+        </span>
+        <span class="sr-only">
+          <svg viewBox="0 0 451.847 451.847"><path d="M97.141,225.92c0-8.095,3.091-16.192,9.259-22.366L300.689,9.27c12.359-12.359,32.397-12.359,44.751,0
+c12.354,12.354,12.354,32.388,0,44.748L173.525,225.92l171.903,171.909c12.354,12.354,12.354,32.391,0,44.744
+c-12.354,12.365-32.386,12.365-44.745,0l-194.29-194.281C100.226,242.115,97.141,234.018,97.141,225.92z"></path></svg>
+        </span>
+      </a>
+      <a class="u-absolute-vcenter u-carousel-control u-carousel-control-next u-text-grey-30 u-block-f6b2-4" href="#carousel-fc81" role="button" data-u-slide="next">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+        </span>
+        <span class="sr-only">
+          <svg viewBox="0 0 451.846 451.847"><path d="M345.441,248.292L151.154,442.573c-12.359,12.365-32.397,12.365-44.75,0c-12.354-12.354-12.354-32.391,0-44.744
+L278.318,225.92L106.409,54.017c-12.354-12.359-12.354-32.394,0-44.748c12.354-12.359,32.391-12.359,44.75,0l194.287,194.284
+c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,248.292z"></path></svg>
+        </span>
+      </a>
+    </section>
+    <section class="u-align-center u-border-2 u-border-grey-75 u-clearfix u-container-align-center u-custom-color-1 u-section-4" id="sec-a748">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Contact Us</h2>
+        <div class="u-form u-form-1">
+          <form action="https://forms.nicepagesrv.com/v2/form/process" class="u-clearfix u-form-spacing-7 u-form-vertical u-inner-form" style="padding: 12px;" source="email" name="form">
+            <div class="u-form-group u-form-name u-label-top">
+              <label for="name-3b9a" class="u-custom-font u-font-playfair-display u-label">Name</label>
+              <input type="text" placeholder="Enter your Name" id="name-3b9a" name="name" class="u-grey-75 u-input u-input-rectangle u-text-body-alt-color" required="">
+            </div>
+            <div class="u-form-email u-form-group u-label-top">
+              <label for="email-3b9a" class="u-custom-font u-font-playfair-display u-label">Email</label>
+              <input type="email" placeholder="Enter a valid email address" id="email-3b9a" name="email" class="u-grey-75 u-input u-input-rectangle u-text-body-alt-color" required="">
+            </div>
+            <div class="u-form-group u-form-message u-label-top">
+              <label for="message-3b9a" class="u-custom-font u-font-playfair-display u-label">Message</label>
+              <textarea placeholder="​Enter Your Message" rows="4" cols="50" id="message-3b9a" name="message" class="u-grey-75 u-input u-input-rectangle u-text-body-alt-color" required=""></textarea>
+            </div>
+            <div class="u-align-center u-form-group u-form-submit u-label-top">
+              <a href="#" class="u-active-custom-color-7 u-btn u-btn-round u-btn-submit u-button-style u-hover-custom-color-5 u-radius u-btn-1">Submit</a>
+              <input type="submit" value="submit" class="u-form-control-hidden">
+            </div>
+            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
+            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
+            <input type="hidden" value="" name="recaptchaResponse">
+            <input type="hidden" name="formServices" value="8aadad21-cd1f-3d64-a0bb-76eabc5687a8">
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-clearfix u-footer u-grey-80" id="sec-ef01"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1" data-animation-name="bounceIn" data-animation-duration="1000" data-animation-direction="">
+          <a class="u-social-url" title="facebook" target="_blank" href="">
+            <span class="u-icon u-social-facebook u-social-icon u-text-palette-1-base">
+              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-9cec"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-9cec"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M73.5,31.6h-9.1c-1.4,0-3.6,0.8-3.6,3.9v8.5h12.6L72,58.3H60.8v40.8H43.9V58.3h-8V43.9h8v-9.2
+      c0-6.7,3.1-17,17-17h12.5v13.9H73.5z"></path></svg>
+            </span>
+          </a>
+          <a class="u-social-url" title="twitter" target="_blank" href="">
+            <span class="u-file-icon u-icon u-social-icon u-social-twitter u-icon-2">
+              <img src="static/images/11823292.png" alt="">
+            </span>
+          </a>
+          <a class="u-social-url" title="linkedin" target="_blank" href="">
+            <span class="u-icon u-social-icon u-social-linkedin u-text-palette-1-base">
+              <svg class="u-svg-link" preserveAspectRatio="xMidYMin slice" viewBox="0 0 112 112" style=""><use xlink:href="#svg-047b"></use></svg>
+              <svg class="u-svg-content" viewBox="0 0 112 112" x="0" y="0" id="svg-047b"><circle fill="currentColor" cx="56.1" cy="56.1" r="55"></circle><path fill="#FFFFFF" d="M41.3,83.7H27.9V43.4h13.4V83.7z M34.6,37.9L34.6,37.9c-4.6,0-7.5-3.1-7.5-7c0-4,3-7,7.6-7s7.4,3,7.5,7
+      C42.2,34.8,39.2,37.9,34.6,37.9z M89.6,83.7H76.2V62.2c0-5.4-1.9-9.1-6.8-9.1c-3.7,0-5.9,2.5-6.9,4.9c-0.4,0.9-0.4,2.1-0.4,3.3v22.5
+      H48.7c0,0,0.2-36.5,0-40.3h13.4v5.7c1.8-2.7,5-6.7,12.1-6.7c8.8,0,15.4,5.8,15.4,18.1V83.7z"></path></svg>
+            </span>
+          </a>
+        </div>
+      </div></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <p class="u-text">
+        <span>This site was created with the </span>
+        <a class="u-link" href="https://nicepage.com/" target="_blank" rel="nofollow">
+          <span>Nicepage</span>
+        </a>
+      </p>
+    </section>
+	<script type="text/javascript" src="https://js.api.here.com/v3/3.1/here.js"></script>
+	<script>
+	  window.onload = function() {
+	    setTimeout(function() {
+		  document.getElementById('facts-section').classList.add('slide-in');
+		}, 5000);
+	  };
+	</script>
+  
+</body></html>

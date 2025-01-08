@@ -1,0 +1,44 @@
+-- Logs begin at Sun 2024-11-24 08:19:59 EAT, end at Wed 2025-01-08 08:46:11 EAT. --
+Jan 08 08:44:01 Wiriama systemd[1]: Starting Cloud-init: Network Stage...
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Cloud-init v. 24.4-0ubuntu1~20.04.1 running 'init' at Wed, 08 Jan 2025 05:44:03 +0000. Up 34648.63 seconds.
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +++++++++++++++++++++++++++++++++++++++Net device info++++++++++++++++++++++++++++++++++++++++
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +---------+-------+-----------------------------+---------------+--------+-------------------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |  Device |   Up  |           Address           |      Mask     | Scope  |     Hw-Address    |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +---------+-------+-----------------------------+---------------+--------+-------------------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: | docker0 | False |          172.17.0.1         |  255.255.0.0  | global | 02:42:6d:7b:75:0f |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: | docker0 | False |  fe80::42:6dff:fe7b:750f/64 |       .       |  link  | 02:42:6d:7b:75:0f |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   eth0  |  True |         172.23.64.11        | 255.255.240.0 | global | 00:15:5d:bf:9f:7d |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   eth0  |  True | fe80::215:5dff:febf:9f7d/64 |       .       |  link  | 00:15:5d:bf:9f:7d |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |    lo   |  True |          127.0.0.1          |   255.0.0.0   |  host  |         .         |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |    lo   |  True |           ::1/128           |       .       |  host  |         .         |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +---------+-------+-----------------------------+---------------+--------+-------------------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +++++++++++++++++++++++++++++Route IPv4 info+++++++++++++++++++++++++++++
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+-------------+---------------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: | Route | Destination |   Gateway   |    Genmask    | Interface | Flags |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+-------------+---------------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   0   |   0.0.0.0   | 172.23.64.1 |    0.0.0.0    |    eth0   |   UG  |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   1   |  172.17.0.0 |   0.0.0.0   |  255.255.0.0  |  docker0  |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   2   | 172.23.64.0 |   0.0.0.0   | 255.255.240.0 |    eth0   |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+-------------+---------------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +++++++++++++++++++Route IPv6 info+++++++++++++++++++
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+---------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: | Route | Destination | Gateway | Interface | Flags |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+---------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   0   |  fe80::/64  |    ::   |    eth0   |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   1   |  fe80::/64  |    ::   |  docker0  |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   3   |    local    |    ::   |  docker0  |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   4   |    local    |    ::   |    eth0   |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   5   |  multicast  |    ::   |    eth0   |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: |   6   |  multicast  |    ::   |  docker0  |   U   |
+Jan 08 08:44:03 Wiriama cloud-init[18602]: ci-info: +-------+-------------+---------+-----------+-------+
+Jan 08 08:44:03 Wiriama cloud-init[18602]: 2025-01-08 05:44:03,791 - DataSourceOVF.py[WARNING]: /usr/bin/vmware-rpctool exited with code 255
+Jan 08 08:44:03 Wiriama cloud-init[18602]: 2025-01-08 05:44:03,810 - log_util.py[WARNING]: vmtoolsd failed to get guestinfo.ovfEnv: Unexpected error while running command.
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Command: ['/usr/bin/vmtoolsd', '--cmd', 'info-get guestinfo.ovfEnv']
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Exit code: 1
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Reason: -
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Stdout:
+Jan 08 08:44:03 Wiriama cloud-init[18602]: Stderr: Error: /usr/bin/vmtoolsd must be run inside a virtual machine on a VMware hypervisor product.
+Jan 08 08:44:58 Wiriama cloud-init[18602]: 2025-01-08 05:44:58,716 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [50/240s]: request error [HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: /2009-04-04/meta-data/instance-id (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0707f356d0>, 'Connection to 169.254.169.254 timed out. (connect timeout=50.0)'))]
+Jan 08 08:44:58 Wiriama cloud-init[18602]: 2025-01-08 05:44:58,754 - url_helper.py[WARNING]: Calling 'http://[fd00:ec2::254]/2009-04-04/meta-data/instance-id' failed [50/240s]: request error [HTTPConnectionPool(host='fd00:ec2::254', port=80): Max retries exceeded with url: /2009-04-04/meta-data/instance-id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0707ee33d0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))]
+Jan 08 08:45:49 Wiriama cloud-init[18602]: 2025-01-08 05:45:49,800 - url_helper.py[WARNING]: Calling 'http://169.254.169.254/2009-04-04/meta-data/instance-id' failed [101/240s]: request error [HTTPConnectionPool(host='169.254.169.254', port=80): Max retries exceeded with url: /2009-04-04/meta-data/instance-id (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x7f0707ee3f10>, 'Connection to 169.254.169.254 timed out. (connect timeout=50.0)'))]
+Jan 08 08:45:49 Wiriama cloud-init[18602]: 2025-01-08 05:45:49,808 - url_helper.py[WARNING]: Calling 'http://[fd00:ec2::254]/2009-04-04/meta-data/instance-id' failed [101/240s]: request error [HTTPConnectionPool(host='fd00:ec2::254', port=80): Max retries exceeded with url: /2009-04-04/meta-data/instance-id (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f0707ee3eb0>: Failed to establish a new connection: [Errno 101] Network is unreachable'))]

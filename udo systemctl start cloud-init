@@ -1,0 +1,3 @@
+● cloud-init.service - Cloud-init: Network Stage
+     Loaded: loaded (/lib/systemd/system/cloud-init.service; enabled; vendor preset: enabled)
+     Active: inactive (dead)

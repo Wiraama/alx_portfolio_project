@@ -18,6 +18,7 @@ jsonpatch==1.22
 jsonpointer==2.0
 jsonschema==3.2.0
 MarkupSafe==2.1.5
+python
 python-engineio==4.10.1
 python-socketio==5.11.4
 python3-xlib==0.15

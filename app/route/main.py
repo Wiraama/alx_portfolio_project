@@ -8,6 +8,7 @@ from app.models.api import Api
 import os, json, random
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from functools import wraps
+import logging
 
 main = Blueprint('main', __name__)
 
@@ -38,7 +39,7 @@ def landing():
                         }
                 mapping.append(mapping_data)
                 count += 1
-                if count >= 20:
+                if count >= 7:
                     break
 
         map_html = Api.map_view(mapping)
@@ -111,7 +112,11 @@ def home():
         print(f"flight object: {flight}")
 
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        logging.error("Error: %s", str(e))
+        import traceback
+        traceback.print_exc()
+
+        return jsonify({'error': 'An unexpected error occurred. Please try again later.'}), 500
 
     if request.accept_mimetypes.best == 'application/json':
         return jsonify(flight=flight)

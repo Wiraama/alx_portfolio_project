@@ -91,3 +91,26 @@ document.querySelector('.u-search-button').addEventListener('click', searchFligh
 
 // Trigger animations on page load
 document.addEventListener('DOMContentLoaded', animateFacts);
+
+class ExpandMenu {
+  constructor(menuSelector, activeClass) {
+    this.menuElement = document.querySelector(menuSelector);
+    this.activeClass = activeClass;
+
+    // Bind the click event
+    this.menuElement.addEventListener('click', this.toggleMenu.bind(this));
+  }
+
+  toggleMenu(event) {
+    event.preventDefault(); // Prevent default link behavior
+    const menuContent = document.querySelector('.menu-content'); // Adjust selector for your menu content
+    if (menuContent) {
+      menuContent.classList.toggle(this.activeClass);
+    }
+  }
+}
+
+// Initialize the class
+document.addEventListener('DOMContentLoaded', () => {
+  new ExpandMenu('.menu-collapse a', 'active');
+});

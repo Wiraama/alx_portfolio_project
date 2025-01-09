@@ -46,20 +46,23 @@ class Auth:
     def signup():
         """ add new user to system """
         if request.method == 'POST':
-            username = request.form.get('username')
-            password = request.form.get('password')
-            email = request.form.get('email')
+            try:
+                username = request.form.get('username')
+                password = request.form.get('password')
+                email = request.form.get('email')
 
-            new_user = User(
-                username=username,
-                hashed_password=hash_password(password),
-                email=email,
-                )
-            db.session.add(new_user)
-            db.session.commit()
-            print("am here")
+                new_user = User(
+                    username=username,
+                    hashed_password=hash_password(password),
+                    email=email,
+                    )
+                db.session.add(new_user)
+                db.session.commit()
+            except IntegrityError as ie:
+                import logging
+                logging.error("error: %s", str(ie))
+                raise IntegrityError("similar details")
             return redirect(url_for('auth.login'))
-        print("not wat u think")
     
         return render_template('register.html')
 

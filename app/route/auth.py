@@ -7,6 +7,7 @@ from flask import Blueprint, request, render_template, session, redirect, flash,
 from flask_bcrypt import Bcrypt
 from app.models.user import User
 from app.extension import db
+from sqlalchemy.exc import IntegrityError
 
 bcrypt = Bcrypt()
 auth = Blueprint('auth', __name__)
@@ -38,7 +39,7 @@ class Auth:
                 session['user_id'] = user.id
                 return redirect(url_for('main.home'))
             else:
-                flash("Wrong details", "danger")
+                flash("Wrong details", "error")
 
         return render_template('Login.html')
 
@@ -58,11 +59,16 @@ class Auth:
                     )
                 db.session.add(new_user)
                 db.session.commit()
-            except IntegrityError as ie:
-                import logging
-                logging.error("error: %s", str(ie))
-                raise IntegrityError("similar details")
-            return redirect(url_for('auth.login'))
+                flash(f'{username} Created', 'success')
+                return redirect(url_for('auth.login'))
+            except IntegrityError:
+                db.session.rollback()
+                flash(f'{username} already exists', 'error')
+                return redirect(url_for('auth.signup'))
+            except Exception as e:
+                db.session.rollback()
+                flash(f"{e}", 'error')
+                return redirect(url_for('auth.signup'))
     
         return render_template('register.html')
 
@@ -75,7 +81,7 @@ class Auth:
             user = User.query.filter_by(email=email).first()
 
             if not user:
-                flash("Email Not Found", 'danger')
+                flash("Email Not Found", 'error')
                 return redirect(url_for('auth.password_reset'))
 
             send_otp = __import__(app.models.emailing).send_otp()

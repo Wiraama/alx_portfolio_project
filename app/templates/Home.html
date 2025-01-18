@@ -11,12 +11,6 @@
     <script class="u-script" type="text/javascript" src="static/js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 7.2.3, nicepage.com">
     <meta name="referrer" content="origin">
-    
-    
-    
-    
-    
-    
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster:400|Playfair+Display:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
     <script type="application/ld+json">{
@@ -46,11 +40,21 @@
             </button>
             <input class="u-custom-font u-font-lobster u-search-input u-search-input-1" type="number" name="flight_number" value="" placeholder="Search">
           </form>
-          <h2 class="u-align-left u-custom-font u-font-playfair-display u-text u-text-default u-text-1">FLight details </h2>
-          <p class="u-align-center u-text u-text-2">
-		    {% if flight %}
-		      Flight Status: {{ flight['flight_status'] }}<br>
-		      Flight Number: {{ flight['aircraft_no'] }}<br>
+          <h2 class="u-align-left u-custom-font u-font-playfair-display u-text u-text-default u-text-1" style="text-align: center;">FLight Details</h2>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  <ul>
+                      {% for category, message in messages %}
+                          <li class="{{ category }}">{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+              {% endif %}
+          {% endwith %}
+		  <p class="u-align-center u-text u-text-2">
+			{% if flight %}
+		      <br>Flight Number: {{ flight['flight_number'] }}<br>
+			  Flight Status: {{ flight['flight_status'] }}<br>
+		      Aircraft Number: {{ flight['aircraft_no'] }}<br>
 		      Airline: {{ flight['airline'] }}<br>
 		      Departure Time: {{ flight['take_off']['time'] }} <br>
 		      Departure Airport: {{ flight['take_off']['from'] }}<br>
@@ -61,9 +65,9 @@
 		      {% endif %}
 		      Arrival Time: {{ flight['landing']['time'] }}<br>
 		      Arrival Airport: {{ flight['landing']['to'] }}<br>
-			{% else %}
+		    {% else %}
 			  Enter Your Flight Number
-			{% endif %}
+		    {% endif %}
           </p>
         </div>
       </div>

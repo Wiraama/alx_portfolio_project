@@ -109,3 +109,9 @@ form {
 #otp-form {
   transition: transform 0.5s ease-in-out;
 }
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}

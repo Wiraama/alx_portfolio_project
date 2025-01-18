@@ -41,16 +41,7 @@
             <input class="u-custom-font u-font-lobster u-search-input u-search-input-1" type="number" name="flight_number" value="" placeholder="Search">
           </form>
           <h2 class="u-align-left u-custom-font u-font-playfair-display u-text u-text-default u-text-1" style="text-align: center;">FLight Details</h2>
-          {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-                  <ul>
-                      {% for category, message in messages %}
-                          <li class="{{ category }}">{{ message }}</li>
-                      {% endfor %}
-                  </ul>
-              {% endif %}
-          {% endwith %}
-		  <p class="u-align-center u-text u-text-2">
+          <p class="u-align-center u-text u-text-2">
 			{% if flight %}
 		      <br>Flight Number: {{ flight['flight_number'] }}<br>
 			  Flight Status: {{ flight['flight_status'] }}<br>
